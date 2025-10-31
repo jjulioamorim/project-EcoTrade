@@ -41,7 +41,7 @@ include '../model/conexao.php';
 
     echo $htmlStr;
 
-$conexao->close();  v  
+$conexao->close();
 
 }else{
     header('Location: conta.php');
