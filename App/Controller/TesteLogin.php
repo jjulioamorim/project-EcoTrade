@@ -27,7 +27,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['tipo_usuario'] = $row['tipo'];
                 $_SESSION['logado'] = true;
-                header('Location: home.php');
+                header('Location: Dashboard.php');
                 exit;
             } else {
                 // Senha incorreta
@@ -42,7 +42,7 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
             exit();
         }
     } else {
-        header('Location: login.php');
+        header('Location: Login.php');
         exit();
     }
 }
