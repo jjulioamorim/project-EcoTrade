@@ -1,0 +1,97 @@
+:root {
+  --primary-green: #2e7d32;
+  --secondary-green: #81c784;
+  --light-green: #e8f5e9;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo i {
+  font-size: 3.5rem;
+  color: var(--primary-green);
+}
+
+.logo h2 {
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.btn-auth {
+  background-color: var(--primary-green);
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.btn-auth:hover {
+  background-color: #1b5e20;
+}
+
+.form-control:focus {
+  border-color: var(--secondary-green);
+  box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+}
+
+.footer-links {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: var(--primary-green);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.eco-tip {
+  background-color: var(--light-green);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.form-section {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.form-section h5 {
+  color: var(--primary-green);
+  margin-bottom: 15px;
+}
+
+/* Estilos específicos para login */
+.login-container {
+  max-width: 400px;
+}
+
+/* Estilos específicos para registro */
+.register-container {
+  max-width: 600px;
+}
