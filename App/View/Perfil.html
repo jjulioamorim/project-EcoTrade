@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrade - Meu Perfil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    :root {
+    --dark-bg: #1e1e2d;
+    --card-bg: #27293d;
+    --text-color: #e4e4e4;
+    --input-bg: #1a1b2a;
+    --primary-color: #4CAF50; /* Verde EcoTrade */
+    --secondary-text: #b0b0b0;
+    --border-color: #3f4159;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Header --- */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+.header h1 {
+    font-size: 2em;
+    margin-left: 10px;
+}
+
+.header p {
+    color: var(--secondary-text);
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* --- Container Principal --- */
+.profile-container {
+    width: 100%;
+    max-width: 800px; /* Limita a largura como na imagem */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- Cartão de Perfil --- */
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-header h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.edit-button {
+    background-color: transparent;
+    color: var(--secondary-text);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.edit-button:hover {
+    background-color: #3f4159;
+    border-color: var(--secondary-text);
+}
+
+/* --- Conteúdo do Formulário --- */
+.profile-content {
+    display: grid;
+    /* Define o layout de duas colunas, com linhas automáticas */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Campos de largura total */
+.full-width {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+}
+
+.form-group label {
+    font-size: 0.8em;
+    color: var(--secondary-text);
+    font-weight: 400;
+}
+
+.form-group input {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100%;
+}
+
+/* Estilo para inputs somente leitura (readonly), como na imagem */
+.form-group input[readonly] {
+    opacity: 0.8;
+    cursor: default;
+}
+
+
+/* --- Botão Voltar --- */
+.back-home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--secondary-text);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 30px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.back-home-button:hover {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.back-home-button i {
+    margin-right: 8px;
+}
+
+/* Estilo de demonstração JS - Seletor de Perfil */
+.user-type-selector {
+    margin-bottom: 15px;
+    align-self: flex-start;
+    color: var(--secondary-text);
+}
+
+.user-type-selector select {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    margin-left: 10px;
+}
+
+/* Media Query para telas menores (empilhamento de campos) */
+@media (max-width: 650px) {
+    .profile-content {
+        grid-template-columns: 1fr; /* Volta para uma coluna em telas menores */
+    }
+}
+</style>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-leaf"></i>
+            <h1>EcoTrade</h1>
+        </div>
+        <p>Plataforma de Negociação de Créditos de Carbono</p>
+    </header>
+
+    <main class="profile-container">
+        <section class="profile-card">
+            <div class="profile-header">
+                <h2>Meu Perfil</h2>
+                <button class="edit-button">
+                    <i class="fas fa-pencil-alt"></i> Editar
+                </button>
+            </div>
+                @nome@
+                @email@
+                @tipo_usuario@
+                
+            <div class="profile-content" id="profileContent">
+                </div>
+
+            <a href="#" class="back-home-button">
+                <i class="fas fa-arrow-left"></i> Voltar para Home
+            </a>
+        </section>
+    </main>
+
+    <script src="Perfil.js"></script>
+</body>
+</html>

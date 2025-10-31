@@ -105,7 +105,7 @@ $conexao->close();
     <nav class="navbar">
         <a href="Dashboard.php" class="navbar-brand">EcoTrade</a>
         <div class="navbar-user">
-            Olá, <strong><?php echo htmlspecialchars($nome); ?></strong>
+            Olá,<a href="Perfil.php"> <strong><?php echo htmlspecialchars($nome); ?></strong></a>
             (<?php echo htmlspecialchars($tipo_usuario); ?>)
             <a href="Logout.php">Sair</a>
         </div>
