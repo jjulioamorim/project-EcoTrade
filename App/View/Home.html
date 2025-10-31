@@ -4,18 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EcoTrade - Plataforma de Créditos de Carbono</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <link rel="stylesheet" href="style.css"> </head>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
-
 body {
   background-color: #11161c;
   color: #eaeaea;
@@ -25,80 +22,19 @@ body {
   height: 100vh;
   text-align: center;
 }
-
-.container {
-  max-width: 700px;
-}
-
-.logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo img {
-  width: 60px;
-  margin-bottom: 10px;
-  filter: brightness(0) saturate(100%) invert(55%) sepia(99%) saturate(446%) hue-rotate(92deg) brightness(92%) contrast(94%);
-}
-
-.logo h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-.logo h1 span {
-  color: #29a35c;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #9aa3af;
-  font-size: 1rem;
-  margin-bottom: 30px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.btn.green {
-  background-color: #29a35c;
-  color: #fff;
-}
-
-.btn.green:hover {
-  background-color: #21894d;
-}
-
-.btn.dark {
-  background-color: transparent;
-  border: 1px solid #333;
-  color: #eaeaea;
-}
-
-.btn.dark:hover {
-  background-color: #1b1f24;
-}
-
+.container { max-width: 700px; }
+.logo { display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; }
+.logo img { width: 60px; margin-bottom: 10px; filter: brightness(0) saturate(100%) invert(55%) sepia(99%) saturate(446%) hue-rotate(92deg) brightness(92%) contrast(94%); }
+.logo h1 { font-size: 2.5rem; font-weight: 700; }
+.logo h1 span { color: #29a35c; }
+h2 { font-size: 1.4rem; margin-bottom: 10px; }
+p { color: #9aa3af; font-size: 1rem; margin-bottom: 30px; }
+.buttons { display: flex; justify-content: center; gap: 15px; }
+.btn { padding: 10px 25px; border: none; border-radius: 6px; font-size: 0.95rem; cursor: pointer; font-weight: 600; transition: all 0.3s ease; text-decoration: none; }
+.btn.green { background-color: #29a35c; color: #fff; }
+.btn.green:hover { background-color: #21894d; }
+.btn.dark { background-color: transparent; border: 1px solid #333; color: #eaeaea; }
+.btn.dark:hover { background-color: #1b1f24; }
 </style>
 <body>
   <div class="container">
@@ -106,16 +42,13 @@ p {
       <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Leaf Icon">
       <h1><span>Eco</span>Trade</h1>
     </div>
-
     <h2>Plataforma de Negociação de Créditos de Carbono</h2>
     <p>Conectando produtores rurais e empresas em um mercado sustentável de créditos de carbono</p>
-
     <div class="buttons">
       <a href="CadUsua.php" class="btn green">Criar Conta</a>
       <a href="Login.php" class="btn dark">Fazer Login</a>
+      <a href="Historico.php" class="btn dark">Histórico Público</a>
     </div>
   </div>
-
-  
 </body>
 </html>

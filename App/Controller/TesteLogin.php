@@ -5,18 +5,18 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 }
 
 if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
-    header('Location: conta.php');
+    header('Location: Dashboard.php'); // Redireciona para o novo Dashboard
     exit;
 } else {
     if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
-        include '../Model/config/Conexao.php';
+        include '../Model/config/Conexao.php'; 
 
         $email = trim($_POST['email']);
         $senha = $_POST['senha'];
-        // var_dump($email, $senha);
-        include '../Model/ModelLogin.php';
+        
+        include '../Model/ModelLogin.php'; 
 
-
+        // $result é criado dentro de ModelLogin.php
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             
@@ -27,18 +27,16 @@ if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['tipo_usuario'] = $row['tipo'];
                 $_SESSION['logado'] = true;
-                header('Location: Dashboard.php');
+                header('Location: Dashboard.php'); // Sucesso, vai para o Dashboard
                 exit;
             } else {
                 // Senha incorreta
-                $_SESSION['status_login'] = uniqid();
-                header("Location: erroCadLogin.php?status=" . $_SESSION['status_login'] . "&erro=senha_incorreta");
+                header("Location: Login.php?erro=senha");
                 exit();
             }
         } else {
             // Email não encontrado
-            $_SESSION['status_login'] = uniqid();
-            header("Location: erroCadLogin.php?status=" . $_SESSION['status_login'] . "&erro=email_nao_encontrado");
+            header("Location: Login.php?erro=email");
             exit();
         }
     } else {

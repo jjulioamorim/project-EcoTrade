@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(formCadastro);
         formData.append("tipo", tipoSelecionado); // adiciona o tipo escolhido
 
-        fetch("../Model/ModelCadUsua.php", {
+        // Ação do formulário é 'CadUsua.php'
+        fetch("CadUsua.php", { 
             method: "POST",
             body: formData,
         })
@@ -39,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.success) {
                     alert("Usuário cadastrado com sucesso!");
                     formCadastro.reset();
+                    // Redireciona para o login após o sucesso
+                    window.location.href = "Login.php"; 
                 } else {
                     alert("Erro ao cadastrar: " + data.message);
                 }

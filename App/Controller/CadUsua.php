@@ -12,32 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Se não for POST (ou seja, o usuário abriu a página no navegador normalmente)
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] != true) {
 
-    function carregarConteudoHTML($arquivo) {
-        return file_get_contents($arquivo);
-    }
-
-    function atualizarCabecalho($htmlCabecalho) {
-        if (isset($_SESSION['logado']) && $_SESSION['logado'] == true) {
-            $nome = htmlspecialchars($_SESSION['primeiro_nome']);
-            return str_replace('@usuario@', "<a href='conta.php'>{$nome}</a>", $htmlCabecalho);
-        } else {
-            return str_replace('@usuario@', "<a href='login.php'>Login</a> | <a href='cadastrar.php'>Cadastrar</a>", $htmlCabecalho);
-        }
-    }
-
+    // Carrega o HTML da view
     $htmlArquivo = __DIR__ . '/../View/Cadastro.html';
-    $htmlCabecalhoArquivo = __DIR__ . '/../View/cabecalho.html';
+    $htmlStr = file_get_contents($htmlArquivo);
 
-    $htmlStr = carregarConteudoHTML($htmlArquivo);
-    $htmlStrCabecalho = carregarConteudoHTML($htmlCabecalhoArquivo);
-
-    $htmlStrCabecalho = atualizarCabecalho($htmlStrCabecalho);
-    $htmlStr = str_replace('@cabecalho@', $htmlStrCabecalho, $htmlStr);
+    // Remove o placeholder @cabecalho@ que não estamos usando
+    $htmlStr = str_replace('@cabecalho@', '', $htmlStr);
 
     echo $htmlStr;
     $conexao->close();
 } else {
-    header('Location: conta.php');
+    header('Location: Dashboard.php'); // Redireciona para o Dashboard se já logado
     exit;
 }
 ?>
