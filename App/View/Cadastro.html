@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - EcoTrade</title>
+    <link rel="stylesheet" href="../../Public/css/stytle.css">
+</head>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: hsl(215, 28%, 7%);
+    --foreground: hsl(210, 40%, 98%);
+    --card: hsl(217, 33%, 10%);
+    --primary: hsl(142, 76%, 36%);
+    --primary-foreground: hsl(144, 61%, 20%);
+    --secondary: hsl(217, 33%, 15%);
+    --muted-foreground: hsl(215, 20%, 65%);
+    --border: hsl(217, 33%, 17%);
+    --destructive: hsl(0, 63%, 51%);
+    --input: hsl(217, 33%, 17%);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 42rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary);
+}
+
+.logo h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+}
+
+.card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.login-card {
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+    background-color: var(--secondary);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab {
+    background: transparent;
+    border: none;
+    color: var(--muted-foreground);
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    background-color: var(--secondary);
+}
+
+.tab.active {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    height: 2.5rem;
+    background-color: var(--background);
+    border: 1px solid var(--input);
+    border-radius: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--foreground);
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px hsla(142, 76%, 36%, 0.2);
+}
+
+input::placeholder {
+    color: var(--muted-foreground);
+}
+
+.error-message {
+    display: block;
+    color: var(--destructive);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    min-height: 1rem;
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: hsl(142, 76%, 32%);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.footer-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin-top: 1.5rem;
+}
+
+.link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.toast.success {
+    border-left: 4px solid var(--primary);
+}
+
+.toast.error {
+    border-left: 4px solid var(--destructive);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .logo h1 {
+        font-size: 1.875rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .tabs {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <h1>EcoTrade</h1>
+            </div>
+            <p class="subtitle">Plataforma de Negociação de Créditos de Carbono</p>
+        </div>
+
+        <div class="card">
+            <h2>Criar Conta</h2>
+
+            <div class="tabs">
+                <button class="tab active" data-type="empresa">Empresa</button>
+                <button class="tab" data-type="produtor">Produtor</button>
+                <button class="tab" data-type="admin">Administrador</button>
+            </div>
+
+            <form action="CadUsua.php" id="registerForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <!-- Campos Empresa -->
+                <div class="empresa-fields">
+                    <div class="form-group">
+                        <label for="cnpj">CNPJ</label>
+                        <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="razaoSocial">Razão Social</label>
+                        <input type="text" id="razaoSocial" name="razaoSocial" placeholder="Nome da empresa">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="setorAtuacao">Setor de Atuação</label>
+                        <input type="text" id="setorAtuacao" name="setorAtuacao" placeholder="Ex: Tecnologia, Indústria...">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <!-- Campos Produtor -->
+                <div class="produtor-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="cpf-produtor">CPF</label>
+                        <input type="text" id="cpf-produtor" name="cpf" placeholder="000.000.000-00">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nomeFazenda">Nome da Fazenda</label>
+                        <input type="text" id="nomeFazenda" name="nomeFazenda" placeholder="Nome da propriedade">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="localizacao">Localização</label>
+                        <input type="text" id="localizacao" name="localizacao" placeholder="Cidade - Estado">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <!-- Campos Admin -->
+                <div class="admin-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="cpf-admin">CPF</label>
+                        <input type="text" id="cpf-admin" name="cpf" placeholder="000.000.000-00">
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo 6 caracteres" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Digite a senha novamente" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <button type="submit" class="btn-primary">Criar Conta</button>
+            </form>
+
+            <p class="footer-text">
+                Já tem uma conta? 
+                <a href="Login.php" class="link">Fazer login</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../../Public/js/Cadastro.js"></script>
+</body>
+</html>
